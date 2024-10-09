@@ -1,0 +1,43 @@
+/* Style all classes that start with col- */
+[class^="col-"] {
+    float: left;
+    padding: calc(0.5 * 1rem); /* 50% of the root element */
+}
+
+/* Remove references to common properties for col-1-3 and col-1-2 */
+.col-1-3 {
+    width: 33.33%;
+}
+
+.col-1-2 {
+    width: 50%;
+}
+
+/* Create a new row after each instance of the class row */
+.row::after {
+    content: ""; /* No content */
+    display: table; /* Ensure the element behaves like a table */
+    clear: both; /* Clear any floating elements */
+}
+
+/* Dark theme for sections */
+[data-section-theme="dark"] {
+    --text-color: color-white;
+    --section-title-color: color-white;
+    background: var(--color-black);
+}
+
+/* Style the footer-address class */
+.footer-address {
+    color: var(--text-color); /* Set text color to text-color variable */
+}
+
+/* Style the social-link class */
+.social-link {
+    display: block; /* Render as a block element */
+}
+
+/* Style svg children of social-link */
+.social-link svg {
+    fill: var(--text-color); /* Fill the color of svg children with text-color */
+}
