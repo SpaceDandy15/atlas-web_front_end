@@ -1,29 +1,28 @@
 /* Custom properties */
 :root {
-    --nav-item-font-family: var(--font-family-title);
-    --nav-item-font-weight: var(--font-weight-bold);
-    --nav-item-font-size: var(--font-size-medium);
+    --nav-item-font-family: 'font-family-title';
+    --nav-item-font-weight: font-weight-bold;
+    --nav-item-font-size: font-size-medium;
     --nav-item-letter-spacing: 4%;
     --nav-item-display: inline-block;
     --nav-item-margin: 0 0 3rem 0;
-    --nav-item-link-hover: var(--color-primary);
+    --nav-item-link-hover: color-primary;
 }
 
-/* Navbar menu floats to the right */
+/* Navbar menu */
 .navbar-menu {
     float: right;
 }
 
-/* Styling for nav */
-nav {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: center;
+/* Navigation styling */
+.nav {
+    margin: 0; /* Set the margin to 0 */
+    padding: 0; /* Set padding to 0 */
+    text-align: center; /* Center align the text */
 }
 
-/* nav-item styling */
-nav .nav-item {
+/* Nav items */
+.nav-item {
     font-family: var(--nav-item-font-family);
     font-weight: var(--nav-item-font-weight);
     font-size: var(--nav-item-font-size);
@@ -32,12 +31,12 @@ nav .nav-item {
     margin: var(--nav-item-margin);
 }
 
-/* nav-link styling */
-nav .nav-link {
+/* Nav links */
+.nav-link {
     display: block;
-    padding: calc(var(--font-size-base) / 2) var(--font-size-base);
+    padding: calc(var(--root-font-size) / 2) var(--root-font-size); /* Set padding to half of root element for top and bottom, equal for left and right */
 }
 
-nav .nav-link:hover {
-    color: var(--nav-item-link-hover);
+.nav-link:hover {
+    color: var(--nav-item-link-hover); /* Set hover color */
 }
