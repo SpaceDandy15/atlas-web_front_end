@@ -1,0 +1,6 @@
+/* Rule for creating a new row after each .row */
+.row + .row {
+    content: ""; /* No content */
+    display: table; /* Display as a table */
+    clear: both; /* Clear floating elements on either side */
+}
