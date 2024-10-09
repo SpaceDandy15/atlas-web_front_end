@@ -1,5 +1,9 @@
-/* Style all classes that start with col- */
-[class^="col-"] {
-    float: left;
-    padding: calc(0.5 * 1rem); /* Set padding to half of the root element */
+/* Custom properties */
+:root {
+    --color-white: #ffffff; /* Define white color for dark theme */
+}
+
+/* Targeting data-section-theme="dark" and setting the text color */
+[data-section-theme="dark"] {
+    color: var(--color-white);
 }
