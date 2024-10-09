@@ -1,0 +1,42 @@
+/* Custom properties */
+:root {
+    --section-tagline-margin: 0;
+}
+
+/* Margin for section-tagline */
+.section-tagline {
+    margin: var(--section-tagline-margin);
+}
+
+/* Styling for ul with class row */
+.row {
+    margin: 0; /* Set margins to 0 all around */
+    padding: 0; /* No padding */
+    list-style: none; /* Remove default styles */
+}
+
+/* Styling for col-1-3 class */
+.col-1-3 {
+    width: 33.33%; /* Set width to 33.33% of parent */
+    float: left; /* Float to the left */
+    padding: calc(var(--root-font-size) / 2); /* Set padding to half of root element */
+}
+
+/* Styling for col-1-2 class */
+.col-1-2 {
+    width: 50%; /* Set width to 50% of parent */
+    float: left; /* Float to the left */
+    padding: calc(var(--root-font-size) / 2); /* Set padding to half of root element */
+}
+
+/* Styling for footer-copyright class */
+.footer-copyright {
+    margin: 0; /* No margins */
+    font-size: var(--font-size-small); /* Set font size */
+    color: var(--text-color); /* Set foreground color */
+}
+
+/* Aligning text in ul tags in footer class */
+.footer ul {
+    text-align: right; /* Align text to the right */
+}
