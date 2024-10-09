@@ -1,0 +1,63 @@
+/* Section Hero styling */
+.section-hero {
+    background-size: 90rem auto; /* Set the background size (width: 90rem, height: automatic) */
+}
+
+/* Section title inside section-hero */
+.section-hero .section-title {
+    margin-bottom: 5rem; /* Add 5rem of margin to the bottom */
+}
+
+/* Section inner inside section-hero */
+.section-hero .section-inner {
+    padding: 10rem 40rem 2rem 0; /* Set padding (top: 10rem, right: 40rem, bottom: 2rem, left: 0) */
+}
+
+/* Add other existing styles as needed below */
+
+/* For example: */
+
+/* Custom properties */
+:root {
+    --color-primary: #007bff;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-light-grey: #f8f9fa;
+    --font-size-large: 1.25rem;
+    --text-color: #333333;
+    --section-padding: 5rem 0;
+    --section-header-padding: 0 0 3rem;
+    --section-body-padding: 0 0 3rem;
+    --section-footer-padding: 3rem 0 0;
+    --section-footer-align: center;
+    --footer-padding: 5rem 0 1rem;
+}
+
+/* Section Padding */
+.section {
+    padding: var(--section-padding);
+}
+
+/* Section Header */
+.section-header {
+    padding: var(--section-header-padding);
+}
+
+/* Section Body */
+.section-body {
+    padding: var(--section-body-padding);
+}
+
+/* Section Footer */
+.section-footer {
+    padding: var(--section-footer-padding);
+    text-align: var(--section-footer-align);
+}
+
+/* Footer */
+.footer {
+    padding: var(--footer-padding);
+}
+
+/* Styling for elements like navbar, buttons, etc. can be added here */
+
