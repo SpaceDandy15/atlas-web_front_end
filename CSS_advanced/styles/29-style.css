@@ -1,22 +1,58 @@
-/* Custom property for nav-item-link-hover */
-:root {
-    --nav-item-link-hover: var(--color-white); /* Set hover link color */
+/* Target card-outer within card-work */
+.card-work .card-outer {
+    position: relative; /* Relatively position the element */
+    overflow: hidden; /* Hide any overflow */
 }
 
-/* Target the before pseudo-element of nav-link inside nav */
-nav .nav-link::before {
-    content: ""; /* Set content to empty */
+/* Target the image inside card-image inside card-work */
+.card-work .card-image img {
+    height: 30rem; /* Set height of the image */
+    width: 100%; /* Set width to 100% */
+    object-fit: cover; /* Make the image cover the space */
+    vertical-align: bottom; /* Vertically align to the bottom */
+}
+
+/* Target card-inner inside card-work */
+.card-work .card-inner {
     position: absolute; /* Absolutely position the element */
-    top: 0; /* Vertical position */
-    left: 0; /* Horizontal position */
-    background-color: var(--color-white); /* Set background color */
-    width: 0; /* Width is 0 initially */
-    height: 20%; /* Height set to 20% of the root element */
-    z-index: -1; /* Ensure the before element doesn't overlap the link */
+    top: -0.1rem; /* Position 0.1rem above */
+    left: -0.1rem; /* Position 0.1rem from the left */
+    right: -0.1rem; /* Position 0.1rem from the right */
+    z-index: 1; /* Set z-index to 1 */
 }
 
-/* Target the before pseudo-element of nav-link when nav-item is hovered */
-nav .nav-item:hover .nav-link::before {
-    background-color: var(--color-primary); /* Set background color on hover */
-    width: 100%; /* Set width to 100% on hover */
+/* Target card-inner when card-work is hovered */
+.card-work:hover .card-inner {
+    background-color: rgba(0, 0, 0, 0.7); /* Set background color on hover */
+}
+
+/* Target card-title inside card-work */
+.card-work .card-title {
+    text-align: center; /* Center align the text */
+    margin: 0; /* Set margins to 0 */
+    opacity: 0; /* Set opacity to the lowest value */
+    height: 100%; /* Set height to 100% */
+    position: relative; /* Set position to relative */
+}
+
+/* Target the link inside card-title and card-work */
+.card-work .card-title a {
+    display: block; /* Make the link display as block */
+    text-decoration: none; /* Remove text decoration */
+    padding-top: 45%; /* Padding on the top */
+}
+
+/* Create the after pseudo-element of the link inside card-title and card-work */
+.card-work .card-title a::after {
+    content: ""; /* Set content to empty */
+    position: absolute; /* Absolutely position the pseudo-element */
+    top: 0; /* Position at the top */
+    right: 0; /* Position on the right */
+    bottom: 0; /* Position at the bottom */
+    left: 0; /* Position on the left */
+}
+
+/* Target card-title when card-work is hovered */
+.card-work:hover .card-title {
+    opacity: 1; /* Set opacity to 1 on hover */
 }
