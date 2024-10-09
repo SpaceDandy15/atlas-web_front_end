@@ -7,12 +7,12 @@
     --font-size-xx-large: 4.8rem;
 }
 
-/* HTML element - Set font size to 62.5% of normal size */
+/* HTML element - Only font-size is set here */
 html {
     font-size: 62.5%;
 }
 
-/* Body - Set font size to font-size-medium */
+/* Body */
 body {
     font-size: var(--font-size-medium);
 }
