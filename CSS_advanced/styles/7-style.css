@@ -1,0 +1,23 @@
+/* Root element */
+:root {
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+    /* Updated font-family-base with Open Sans as the first choice */
+    --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /* Updated font-family-title with Raleway as the first choice */
+    --font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Body - Set font weight to regular and font-family to base */
+body {
+    font-weight: var(--font-weight-regular);
+    font-family: var(--font-family-base);
+}
+
+/* Headings (h1 to h6) - Set font weight to bold and font-family to title */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-title);
+}
