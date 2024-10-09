@@ -1,0 +1,37 @@
+/* Custom properties for transitions */
+:root {
+    --transition-duration: .3s; /* Set the duration of transitions */
+    --transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01); /* Define the cubic-bezier transition timing function */
+}
+
+/* Target card-image when card-work is hovered */
+.card-work:hover .card-image {
+    transform: scale(1.2); /* Apply scale transform to enlarge the image */
+    transition: transform var(--transition-duration) var(--transition-cubic-bezier); /* Add transition effect */
+}
+
+/* Target card-outer when card-work is hovered */
+.card-work:hover .card-outer {
+    transform: scale(0.95); /* Apply scale transform to shrink the element */
+    transition: transform var(--transition-duration) var(--transition-cubic-bezier); /* Add transition effect */
+}
+
+/* Navigation link transitions */
+.nav .nav-link::before {
+    transition: all var(--transition-duration) var(--transition-cubic-bezier); /* Apply transition to the before pseudo-element */
+}
+
+/* Button hover state */
+.button:hover {
+    transition: color var(--transition-duration), background-color var(--transition-duration); /* Transition for button color and background-color */
+}
+
+/* Transition for card-image inside card-work */
+.card-work:hover .card-image {
+    transition: transform var(--transition-duration) var(--transition-cubic-bezier); /* Transition for scale transform */
+}
+
+/* Transition for card-inner inside card-work */
+.card-work:hover .card-inner {
+    transition: all var(--transition-duration) var(--transition-cubic-bezier); /* Apply transition on card-inner */
+}
