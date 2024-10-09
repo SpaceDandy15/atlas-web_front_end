@@ -1,37 +1,35 @@
-/* Custom properties for transitions */
+/* Custom Properties */
 :root {
-    --transition-duration: .3s; /* Set the duration of transitions */
-    --transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01); /* Define the cubic-bezier transition timing function */
+    --transition-duration: .3s;
+    --transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01);
 }
 
-/* Target card-image when card-work is hovered */
+/* Card Work Hover Transformations */
 .card-work:hover .card-image {
-    transform: scale(1.2); /* Apply scale transform to enlarge the image */
-    transition: transform var(--transition-duration) var(--transition-cubic-bezier); /* Add transition effect */
+    transform: scale(1.2);
+    transition: all var(--transition-duration) var(--transition-cubic-bezier);
 }
 
-/* Target card-outer when card-work is hovered */
 .card-work:hover .card-outer {
-    transform: scale(0.95); /* Apply scale transform to shrink the element */
-    transition: transform var(--transition-duration) var(--transition-cubic-bezier); /* Add transition effect */
+    transform: scale(0.95);
+    transition: all var(--transition-duration) var(--transition-cubic-bezier);
 }
 
 /* Navigation link transitions */
 .nav .nav-link::before {
-    transition: all var(--transition-duration) var(--transition-cubic-bezier); /* Apply transition to the before pseudo-element */
+    transition: all var(--transition-duration) var(--transition-cubic-bezier); /* Corrected transition property */
 }
 
-/* Button hover state */
+/* Button Hover Transition */
 .button:hover {
-    transition: color var(--transition-duration), background-color var(--transition-duration); /* Transition for button color and background-color */
+    transition: color var(--transition-duration), background-color var(--transition-duration);
 }
 
-/* Transition for card-image inside card-work */
+/* Card Works Transitions */
 .card-work:hover .card-image {
-    transition: transform var(--transition-duration) var(--transition-cubic-bezier); /* Transition for scale transform */
+    transition: all var(--transition-duration) var(--transition-cubic-bezier);
 }
 
-/* Transition for card-inner inside card-work */
 .card-work:hover .card-inner {
-    transition: all var(--transition-duration) var(--transition-cubic-bezier); /* Apply transition on card-inner */
+    transition: all var(--transition-duration) var(--transition-cubic-bezier);
 }
