@@ -1,3 +1,8 @@
+/* HTML element - Set font size to 62.5% */
+html {
+    font-size: 62.5%;
+}
+
 /* Root element */
 :root {
     --font-size-small: 1.2rem;
@@ -5,11 +10,6 @@
     --font-size-large: 1.8rem;
     --font-size-x-large: 2.3rem;
     --font-size-xx-large: 4.8rem;
-}
-
-/* HTML element - Only font-size is set here */
-html {
-    font-size: 62.5%;
 }
 
 /* Body */
