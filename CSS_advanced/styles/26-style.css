@@ -1,0 +1,20 @@
+/* Custom properties for button (previous section) */
+
+/* Card Testimonial styling */
+.card-testimonial {
+    text-align: center; /* Center align the text */
+}
+
+/* Avatar inside card-testimonial */
+.card-testimonial .card-avatar {
+    border-radius: 50%; /* Round the radius on all sides at 50% */
+    width: calc(10 * 1rem); /* Set width to 10x the root element */
+    height: calc(10 * 1rem); /* Set height to 10x the root element */
+}
+
+/* <cite> tag inside card-quote inside card-testimonial */
+.card-testimonial .card-quote cite {
+    display: block; /* Style <cite> as a block-level element */
+    padding-top: 1rem; /* Pad the top with 1x the root element */
+    color: var(--color-primary); /* Set foreground color to the value of the color-primary variable */
+}
