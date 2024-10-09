@@ -25,17 +25,3 @@
     top: var(--header-logo-link-top); /* Set the top position */
     left: var(--header-logo-link-left); /* Set the left position */
 }
-
-/* Additional sections from the original file */
-/* ... your other styles go here ... */
-
-/* Example of other styling sections that could exist in this CSS file */
-.header-menu {
-    /* Additional header menu styles */
-}
-
-/* Styles for the navigation bar */
-.navbar {
-    /* Add navbar styles here */
-}
-
