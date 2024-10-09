@@ -1,25 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Web Page</title>
+/* Root element */
+:root {
+    --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 
-    <!-- Google Fonts link -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+/* Body */
+body {
+    font-family: var(--font-family-base);
+}
 
-    <!-- Any other CSS files or meta tags -->
-    <link rel="stylesheet" href="path/to/styles/7-style.css">
-
-</head>
-<body>
-    <!-- Page content here -->
-
-    <h1>Welcome to My Website</h1>
-    <p>This paragraph uses the Open Sans font.</p>
-
-    <h2>This heading uses the Raleway font.</h2>
-
-    <!-- More content -->
-</body>
-</html>
+/* All heading tags (h1 to h6) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-title);
+}
