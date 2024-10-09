@@ -1,0 +1,41 @@
+/* Custom properties for header and logo */
+:root {
+    --header-padding: 4rem 0 0; /* Padding for the header */
+    --header-logo-position: relative; /* Positioning for the header logo */
+    --header-logo-link-display: inline-block; /* Display for the header logo link */
+    --header-logo-link-position: absolute; /* Positioning for the header logo link */
+    --header-logo-link-top: -1rem; /* Top position for the header logo link */
+    --header-logo-link-left: 0; /* Left position for the header logo link */
+}
+
+/* Header styling */
+.header {
+    padding: var(--header-padding); /* Apply header padding from custom property */
+}
+
+/* Header logo styling */
+.header-logo {
+    position: var(--header-logo-position); /* Position the logo */
+}
+
+/* Header logo link styling */
+.header-logo a {
+    display: var(--header-logo-link-display); /* Set display for the link */
+    position: var(--header-logo-link-position); /* Position the link */
+    top: var(--header-logo-link-top); /* Set the top position */
+    left: var(--header-logo-link-left); /* Set the left position */
+}
+
+/* Additional sections from the original file */
+/* ... your other styles go here ... */
+
+/* Example of other styling sections that could exist in this CSS file */
+.header-menu {
+    /* Additional header menu styles */
+}
+
+/* Styles for the navigation bar */
+.navbar {
+    /* Add navbar styles here */
+}
+
