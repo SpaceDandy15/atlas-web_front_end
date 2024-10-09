@@ -1,0 +1,4 @@
+/* Remove text decoration from anchor elements */
+a {
+    text-decoration: none;
+}

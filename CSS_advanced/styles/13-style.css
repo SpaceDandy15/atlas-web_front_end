@@ -1,0 +1,20 @@
+/* Anchor element (only targeting links) */
+a[href] {
+    text-decoration: none;
+    font-style: normal;
+}
+
+/* Visited state */
+a[href]:visited {
+    font-style: italic;
+}
+
+/* Hover state */
+a[href]:hover {
+    text-decoration: underline;
+}
+
+/* Active state */
+a[href]:active {
+    background-color: var(--color-light-grey);
+}

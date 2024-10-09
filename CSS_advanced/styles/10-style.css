@@ -1,0 +1,14 @@
+/* Root element */
+:root {
+    --section-header-align: center;
+}
+
+/* Section header */
+.section-header {
+    text-align: var(--section-header-align);
+}
+
+/* Section tagline (existing declaration) */
+.section-tagline {
+    color: var(--color-primary);
+}
