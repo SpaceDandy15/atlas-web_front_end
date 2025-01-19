@@ -1,0 +1,1 @@
+This project is all about learning how to use various dev tools to remake or change certain aspects of a website. 
