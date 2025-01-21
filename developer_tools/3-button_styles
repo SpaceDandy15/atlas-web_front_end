@@ -1,7 +1,7 @@
 tn {
     display: inline-block;
     font-weight: 400;
-    color: #212529;
+    color: #f8f9fa;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
