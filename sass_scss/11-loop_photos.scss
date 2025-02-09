@@ -1,0 +1,8 @@
+@import '11-photos';
+
+/* Iterating over each name in the list */
+@each $name in $list-names {
+  .photo-#{$name} {
+    background: image-url("photos/#{$name}.jpg") no-repeat;
+  }
+}
