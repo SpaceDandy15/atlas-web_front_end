@@ -288,7 +288,6 @@
     
     /* Section HERO
 ============================= */
-
 /* New hero-homepage class */
 .hero-homepage {
     display: flex;
@@ -296,38 +295,38 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-  }
-  
-  .section-hero {
-    position: relative;
-    margin-top: -8.5rem;
+    background-color: #010101;
     background-position: 75% 0;
     background-repeat: no-repeat;
     background-size: 90rem auto;
-    background-color: #010101;
-  }
-  
-  .section-hero .section-title {
+}
+
+.section-hero {
+    position: relative;
+    margin-top: -8.5rem;
+}
+
+.section-hero .section-title {
     margin-bottom: 5rem;
-  }
-  
-  .section-hero .section-inner {
+}
+
+.section-hero .section-inner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     min-height: 50vh;
-  }
-  
-  .section-hero .section-body {
+}
+
+.section-hero .section-body {
     padding: 10rem 4rem;
-  }
-  
-  .section-hero .section-category {
+}
+
+.section-hero .section-category {
     color: var(--color-white);
     text-transform: uppercase;
-  }
-  
+}
+
     /* Section Latest news ============================= */
   .section-latest-news .row {
     flex-direction: row-reverse;
