@@ -301,11 +301,11 @@
     }
     
     .section-hero .section-inner {
-         Property: display, Value: flex
-         Property: flex-direction, Value: column
-         Property: align-items, Value: flex-start
-         Property: justify-content, Value: center
-         Property: min-height, Value: 50vh
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 50vh;
     }
     /* Section Latest news ============================= */
   .section-latest-news .row {
