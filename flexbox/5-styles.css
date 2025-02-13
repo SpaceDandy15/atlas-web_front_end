@@ -59,15 +59,17 @@
     --section-footer-padding: 3rem 0 0;
     --section-footer-align: center;
   
-    /** HEADER **/
-    --header-padding: 4rem 0 0;
-    --header-logo-position: relative;
-    --header-logo-link-display: inline-block;
-    --header-logo-link-position: absolute;
-    --header-logo-link-top: -1rem;
-    --header-logo-link-left: 0;
-    
-    .header-container {
+    /* Header
+   ============================= */
+
+.header {
+  padding: var(--header-padding);
+  position: relative;
+  z-index: 3;
+  background: transparent;
+}
+
+.header-container {
   display: flex;
   justify-content: space-between;
 }
