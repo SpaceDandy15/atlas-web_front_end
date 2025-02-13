@@ -73,14 +73,17 @@
       /** FOOTER **/
       --footer-padding: 5rem 0 1rem;
 
-      /** NAVBAR **/
+/** NAVBAR **/
+
+
+--nav-item-margin: 0 0 0 2rem;
+
 --nav-item-font-family: var(--font-family-headings);
 --nav-item-font-weight: var(--font-weight-bold);
 --nav-item-font-size: var(--font-size-medium);
 --nav-item-letter-spacing: .04rem;
 --nav-item-display: inline-block;
 --nav-item-link-hover: var(--color-white);
---nav-item-margin: 0 0 0 2rem;
 
 .nav {
     display: flex;
@@ -89,6 +92,7 @@
 .nav-item + .nav-item {
     margin: var(--nav-item-margin);
 }
+
 
       /** BUTTON **/
       --button-display: inline-block;
