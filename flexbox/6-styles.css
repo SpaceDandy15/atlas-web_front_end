@@ -74,14 +74,14 @@
       --footer-padding: 5rem 0 1rem;
     
         /** NAVBAR **/
-        --nav-item-font-family: var(--font-family-headings);
-        --nav-item-font-weight: var(--font-weight-bold);
-        --nav-item-font-size: var(--font-size-medium);
-        --nav-item-letter-spacing: .04rem;
-        --nav-item-display: inline-block;
-        --nav-item-margin: 0 2rem 0 0;
-        --nav-item-link-hover: var(--color-white);
-        --nav-item-margin: 0 0 0 2rem;
+--nav-item-font-family: var(--font-family-headings);
+--nav-item-font-weight: var(--font-weight-bold);
+--nav-item-font-size: var(--font-size-medium);
+--nav-item-letter-spacing: .04rem;
+--nav-item-display: inline-block;
+--nav-item-margin: 0 2rem 0 0;
+--nav-item-link-hover: var(--color-white);
+
 .nav {
     display: flex;
 }
@@ -89,7 +89,7 @@
 .nav .nav-item + .nav-item {
     margin: var(--nav-item-margin);
 }
-  
+
       /** BUTTON **/
       --button-display: inline-block;
       --button-padding: 1.5rem 3rem;
