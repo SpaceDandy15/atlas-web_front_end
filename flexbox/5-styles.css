@@ -77,14 +77,6 @@
     /** FOOTER **/
     --footer-padding: 5rem 0 1rem;
   
-    /** NAVBAR **/
-    --nav-item-font-family: var(--font-family-headings);
-    --nav-item-font-weight: var(--font-weight-bold);
-    --nav-item-font-size: var(--font-size-medium);
-    --nav-item-letter-spacing: .04rem;
-    --nav-item-display: inline-block;
-    --nav-item-margin: 0 2rem 0 0;
-    --nav-item-link-hover: var(--color-white);
   
     /** BUTTON **/
     --button-display: inline-block;
