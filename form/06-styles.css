@@ -23,7 +23,6 @@
     --color-grey: #a0a0a0;
     --color-light-grey: #f3f3f3;
     --color-dark-grey: #353535;
-    --color-dark-grey: #333333;
     --color-red: #cd3e65;
     --color-green: #08805b;
     --valid-color: var(--color-green);
@@ -91,6 +90,15 @@
     --button-hover-color: var(--color-white);
     --button-hover-text-decoration: none;
     --button-hover-background: var(--color-primary);
+    .button-primary {
+  color: var(--color-white);
+  background: var(--color-primary);
+}
+.button-primary:hover {
+  color: var(--color-primary);
+  background: var(--color-white);
+}
+
   
     /** MOTION **/
     --transition-duration: .3s;
