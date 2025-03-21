@@ -9,24 +9,49 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
+        <!-- Big title for screens > 768px -->
         <h1 class="d-none d-md-block">Big title</h1>
+
+        <!-- Small title for screens <= 768px -->
         <h1 class="d-block d-md-none">Small title</h1>
 
-        <!-- Container for screens <= 768px -->
+        <!-- First div (container) -->
         <div class="container d-block d-md-none bg-info p-3 border border-info rounded">
             <div class="row">
-                <div class="col-4 p-3 text-light border-bottom border-right">Left</div>
-                <div class="col-4 p-3 text-light border-bottom border-left border-right text-center shadow">Middle</div>
-                <div class="col-4 p-3 text-light border-bottom border-left">Right</div>
+                <!-- Left div -->
+                <div class="col-4 p-3 text-light border-bottom border-right">
+                    Left
+                </div>
+
+                <!-- Midle div (disappears on small screens) -->
+                <div class="col-4 p-3 text-light border-bottom border-left border-right text-center shadow d-none d-md-block">
+                    Middle
+                </div>
+
+                <!-- Right div -->
+                <div class="col-4 p-3 text-light border-bottom border-left">
+                    Right
+                </div>
             </div>
         </div>
 
-        <!-- Container for screens > 768px -->
+        <!-- Div for Larger screens (>= 768px) -->
         <div class="container-fluid d-none d-md-block bg-info p-3 border border-info rounded">
             <div class="row">
-                <div class="col-4 p-3 text-light border-bottom border-right">Left</div>
-                <div class="col-4 p-3 text-light border-bottom border-left border-right text-center shadow d-none d-md-block">Middle</div>
-                <div class="col-4 p-3 text-light border-bottom border-left">Right</div>
+                <!-- Left div -->
+                <div class="col-4 p-3 text-light border-bottom border-right">
+                    Left
+                </div>
+
+                <!-- Mid div (disappears on small screens) -->
+                <div class="col-4 p-3 text-light border-bottom border-left border-right text-center shadow d-none d-md-block">
+                    Middle
+                </div>
+
+                <!-- Right div -->
+                <div class="col-4 p-3 text-light border-bottom border-left">
+                    Right
+                </div>
             </div>
         </div>
 
