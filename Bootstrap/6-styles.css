@@ -1,0 +1,59 @@
+/* Styling for .btn-primary */
+.btn-primary {
+    background-color: #E0003C;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #BC1340;
+}
+
+/* Styling for .btn-outline-primary */
+.btn-outline-primary {
+    color: #E0003C;
+    border-color: #E0003C;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    color: #BC1340;
+    border-color: #BC1340;
+}
+
+/* Styling for anchor links */
+a {
+    color: #E0003C;
+}
+
+a:hover,
+a:focus {
+    color: #E0003C;
+}
+
+/* Styling for card elements */
+.card,
+.card-header,
+.card-footer {
+    border-color: #E0003C;
+    border-radius: 1rem;
+}
+
+/* Styling for .text-muted */
+.text-muted {
+    color: #8C8C8C;
+}
+
+/* Styling for .card-header to make text white, background red, and top corners rounded */
+.card-header {
+    color: white;
+    background-color: #E0003C;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.card {
+    border-color: #E0003C;
+    border-radius: 1rem; /* Apply rounded corners to the entire card */
+}
