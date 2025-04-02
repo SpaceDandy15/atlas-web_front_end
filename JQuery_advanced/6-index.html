@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 6</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="application/javascript"></script>
+        <style>
+            .remove-btn {
+                background-color: orange;
+                cursor: pointer;
+                text-align: center;
+                width: 30px;
+            }
+
+            /* Style for Before/After toggle buttons */
+            .position-btn {
+                background-color: green;
+                color: white;
+                border: none;
+                padding: 8px 12px;
+                cursor: pointer;
+                font-size: 16px;
+                margin: 5px;
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .position-btn:hover {
+                background-color: darkgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="application/javascript">
+            function createFamilyTree() {
+                $('body').append(
+                    '<table>' +
+                        '<thead><tr><th>Firstname</th><th>Lastname</th></tr></thead>' +
+                        '<tbody></tbody>' +
+                    '</table>'
+                );
+            }
+
+            function addNewMember(firstName, lastName, position) {
+                let row = 
+                    '<tr>' +
+                        '<td>' + firstName + '</td>' +
+                        '<td>' + lastName + '</td>' +
+                        '<td class="remove-btn">(x)</td>' +
+                    '</tr>';
+
+                if (position === "before") {
+                    $('tbody').prepend(row);
+                } else {
+                    $('tbody').append(row);
+                }
+
+                $('.remove-btn').click(function () {
+                    $(this).parent().remove();
+                });
+            }
+
+            function createForm() {
+                $('body').prepend(
+                    '<form id="familyForm">' +
+                        '<input type="text" id="firstName">' +
+                        '<input type="text" id="lastName">' +
+                        '<button type="button" id="positionToggle" class="position-btn">' +
+                            '⬆ Before' +
+                        '</button>' +
+                        '<input type="submit" value="Submit">' +
+                    '</form>'
+                );
+
+                let position = "before"; // Default position
+
+                // Toggle button text and position on click
+                $('#positionToggle').click(function () {
+                    if (position === "before") {
+                        position = "after";
+                        $(this).html('⬇ After');
+                    } else {
+                        position = "before";
+                        $(this).html('⬆ Before');
+                    }
+                });
+
+                // Handle form submission
+                $('#familyForm').submit(function (event) {
+                    event.preventDefault();
+                    let firstName = $('#firstName').val();
+                    let lastName = $('#lastName').val();
+                    if (firstName && lastName) {
+                        addNewMember(firstName, lastName, position);
+                        $('#firstName').val('');
+                        $('#lastName').val('');
+                    }
+                });
+            }
+
+            $(document).ready(function () {
+                createFamilyTree();
+                createForm();
+            });
+        </script>
+    </body>
+</html>
