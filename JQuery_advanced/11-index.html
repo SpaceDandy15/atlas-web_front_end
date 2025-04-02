@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Server Example with Form</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Posts</h1>
+  <div id="posts-container"></div>
+
+  <script>
+    // previous addPostRow function
+    function addPostRow(data) {
+      const postParagraph = $("<p></p>");
+      const postContent = `<span>Post created with id: ${data.id}, title: ${data.title}, author: ${data.author}</span>`;
+      postParagraph.html(postContent);
+      $("#posts-container").append(postParagraph);
+    }
+
+    // list posts from the server
+    function listPosts() {
+      $.get("http://localhost:3000/posts", function(data) {
+        data.forEach(post => {
+          addPostRow(post);
+        });
+      }).fail(function() {
+        alert("Server Error");
+      });
+    }
+
+    // Function build the form
+    function buildForm() {
+      const form = $("<form></form>");
+      
+      // Author input
+      const authorDiv = $("<div></div>");
+      const authorLabel = $("<label for='author'>Author</label>");
+      const authorInput = $("<input>").attr("type", "text").attr("id", "author");
+      authorDiv.append(authorLabel, authorInput);
+      
+      // Title textarea
+      const titleDiv = $("<div></div>");
+      const titleLabel = $("<label for='title'>Title</label>");
+      const titleTextarea = $("<textarea>").attr("id", "title");
+      titleDiv.append(titleLabel, titleTextarea);
+      
+      // Submit button
+      const submitInput = $("<input>").attr("type", "submit").val("Submit");
+      
+      // Append to the form
+      form.append(authorDiv, titleDiv, submitInput);
+      
+      // Append form to the body
+      $("body").append(form);
+      
+      // When the form is submitted, call sendForm
+      form.submit(function(event) {
+        event.preventDefault(); // Prevent page reload
+        sendForm();
+      });
+    }
+
+    // Function to send form data
+    function sendForm() {
+      // Display message before sending the data
+      $("form").after("<p>About to send the query to the API...</p>");
+      
+      // Collect data from the form
+      const author = $("#author").val();
+      const title = $("#title").val();
+      
+      const data = {
+        author: author,
+        title: title
+      };
+
+      // Send POST request to the server
+      $.ajax({
+        url: "http://localhost:3000/posts",
+        method: "POST",
+        data: data,
+        success: function(response) {
+          // If the POST request is successful, call addPostRow with the new post data
+          addPostRow(response);
+        },
+        error: function() {
+          // If the POST request fails, show an error alert
+          alert("Error sending the POST query");
+        }
+      });
+    }
+
+    // Call listPosts and buildForm when the page loads
+    $(document).ready(function() {
+      listPosts();
+      buildForm();
+    });
+  </script>
+</body>
+</html>
