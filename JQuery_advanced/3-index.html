@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 3</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" type="application/javascript"></script>
+    </head>
+
+    <body>
+        <script type="application/javascript">
+            function createFamilyTree() {
+                $('body')
+                    .append('<table>')
+                    .children('table')
+                    .append('<thead>')
+                    .children('thead')
+                    .append('<tr>')
+                    .children('tr')
+                    .append('<th>')
+                    .children('th')
+                    .text('Firstname')
+                    .end()
+                    .append('<th>')
+                    .children('th')
+                    .text('Lastname')
+                    .end()
+                    .end()
+                    .append('<tbody>')
+                    .children('tbody')
+                    .append('<tr>')
+                    .children('tr')
+                    .append('<td>')
+                    .children('td')
+                    .text('Guillaume')
+                    .end()
+                    .append('<td>')
+                    .children('td')
+                    .text('Salva')
+                    .end()
+                    .end()
+                    .append('<tr>')
+                    .children('tr')
+                    .append('<td>')
+                    .children('td')
+                    .text('Paulette')
+                    .end()
+                    .append('<td>')
+                    .children('td')
+                    .text('Salva')
+                    .end()
+                    .end()
+                    .append('<tr>')
+                    .children('tr')
+                    .append('<td>')
+                    .children('td')
+                    .text('Antoine')
+                    .end()
+                    .append('<td>')
+                    .children('td')
+                    .text('Salva')
+                    .end();
+            }
+
+            createFamilyTree();
+        </script>
+    </body>
+</html>
