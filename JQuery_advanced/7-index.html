@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        li p {
+            margin: 5px 0;
+        }
+        li .snippet {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        $(document).ready(function() {
+            createSearchForm();
+        });
+
+        function createSearchForm() {
+            $('body').append(
+                '<form id="searchForm">' +
+                    '<input type="text" id="searchInput" placeholder="">' +  // Empty placeholder
+                    '<input type="submit" value="Search">' +
+                '</form>' +
+                '<ul id="resultsList"></ul>'
+            );
+
+            $('#searchForm').submit(function(event) {
+                event.preventDefault();
+                let searchTerm = $('#searchInput').val().trim();
+                if (searchTerm) {
+                    queryWikipedia(searchTerm);
+                }
+            });
+        }
+
+        function addNewArticle(id, title, snippet) {
+            let listItem = 
+                '<li>' +
+                    '<p><span>ID - ' + id + ' </span><b>' + title + '</b></p>' +  // Corrected ID display
+                    '<p class="snippet">' + snippet + '</p>' +
+                '</li>';
+            $('#resultsList').append(listItem);
+        }
+
+        function queryWikipedia(search) {
+            $.ajax({
+                url: "https://en.wikipedia.org/w/api.php",
+                data: {
+                    action: "query",
+                    format: "json",
+                    list: "search",
+                    srsearch: search,
+                    origin: "*"
+                },
+                success: function(response) {
+                    $('#resultsList').empty(); // Clear previous results
+                    let results = response.query.search;
+                    results.forEach(result => {
+                        addNewArticle(result.pageid, result.title, result.snippet);
+                    });
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
