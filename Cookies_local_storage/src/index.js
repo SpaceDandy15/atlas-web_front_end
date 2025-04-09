@@ -1,39 +1,26 @@
-//
-// Task 1 & 2 & 3 shared functions
-//
-
-// Task 1 & 2: Set cookies with optional expiration & path
-//   default: session cookie, site‑wide
-function setCookies(expDays = 0, path = '/') {
+// Task 1 & Task 2: Set cookies with expiration and path for 0-3-index.html
+function setCookies() {
   const firstname = document.getElementById('firstname').value;
-  const email     = document.getElementById('email').value;
-  let cookieStr;
+  const email = document.getElementById('email').value;
 
-  // firstname
-  cookieStr = `firstname=${encodeURIComponent(firstname)}; path=${path}`;
-  if (expDays > 0) {
-    const d = new Date();
-    d.setDate(d.getDate() + expDays);
-    cookieStr += `; expires=${d.toUTCString()}`;
-  }
-  document.cookie = cookieStr;
+  // Set expiration to 10 days
+  const now = new Date();
+  now.setTime(now.getTime() + (10 * 24 * 60 * 60 * 1000)); // 10 days
+  const expires = `expires=${now.toUTCString()}`;
+  const path = "path=/2-index.html"; // Used specifically for 2-index.html
 
-  // email
-  cookieStr = `email=${encodeURIComponent(email)}; path=${path}`;
-  if (expDays > 0) {
-    const d = new Date();
-    d.setDate(d.getDate() + expDays);
-    cookieStr += `; expires=${d.toUTCString()}`;
-  }
-  document.cookie = cookieStr;
+  document.cookie = `firstname=${firstname}; ${expires}; ${path}`;
+  document.cookie = `email=${email}; ${expires}; ${path}`;
 }
 
-// Task 3: Get the value of a specific cookie
+// Task 3: Get the value of a specific cookie (only for 0-3-index.html)
 function getCookie(name) {
   const cookies = document.cookie.split(';');
-  for (let c of cookies) {
-    const [key, ...vals] = c.trim().split('=');
-    if (key === name) return decodeURIComponent(vals.join('='));
+  for (let cookie of cookies) {
+    const [key, value] = cookie.trim().split('=');
+    if (key === name) {
+      return value;
+    }
   }
   return '';
 }
@@ -41,103 +28,70 @@ function getCookie(name) {
 // Task 3: Show cookies on the page
 function showCookies() {
   const firstname = getCookie('firstname');
-  const email     = getCookie('email');
+  const email = getCookie('email');
+
   const p = document.createElement('p');
   p.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
   document.body.appendChild(p);
 }
 
-// Expose shared functions
-window.setCookiesBasic = () => setCookies(0, '/');       // for 0-index.html
-window.setCookiesExp   = () => setCookies(10, '/1-index.html'); // for 1-index.html
-window.setCookies      = () => setCookies(10, '/2-index.html'); // for 2-index.html & default
-window.getCookie       = getCookie;
-window.showCookies     = showCookies;
+// -----------------------------
+// Task 4: JS-Cookie functions
+// -----------------------------
 
+function setCookiesAndShowWelcomeMessage() {
+  const firstname = document.getElementById('firstname').value;
+  const email = document.getElementById('email').value;
 
-//
-// 3‑index.html specific functions
-//
+  Cookies.set('firstname', firstname, { expires: 10 });
+  Cookies.set('email', email, { expires: 10 });
 
-// Show the login form (rebuilds #app with form)
-function showForm() {
-  const app = document.getElementById('app');
-  app.innerHTML = `
-    <h1>Login to the website</h1>
-    <div id="login-form-container">
-      <h2>Login</h2>
-      <input type="text" id="firstname" placeholder="First Name" />
-      <input type="text" id="email" placeholder="Email" />
-      <button id="login-btn">Log me in</button>
-    </div>
-  `;
-  document.getElementById('login-btn').addEventListener('click', onLogin);
+  showWelcomeMessageOrForm();
 }
 
-// Hide the login form container
-function hideForm() {
-  const form = document.getElementById('login-form-container');
-  if (form) form.style.display = 'none';
-}
-
-// Delete cookies and show the form
 function deleteCookiesAndShowForm() {
-  // expire both cookies
-  document.cookie = 'firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/3-index.html';
-  document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/3-index.html';
+  Cookies.remove('firstname');
+  Cookies.remove('email');
   showForm();
 }
 
-// Render either welcome message or form
+function showForm() {
+  document.body.innerHTML = `
+    <h1>Login to the website</h1>
+    <div id="login-form-container">
+      <h2>Login Form</h2>
+      <input type="text" id="firstname" placeholder="First Name" />
+      <input type="text" id="email" placeholder="Email" />
+      <button onclick="setCookiesAndShowWelcomeMessage()">Log me in</button>
+    </div>
+  `;
+}
+
 function showWelcomeMessageOrForm() {
-  const firstname = getCookie('firstname');
-  const app = document.getElementById('app');
+  const firstname = Cookies.get('firstname');
 
   if (!firstname) {
     showForm();
   } else {
-    app.innerHTML = ''; // clear
-    const h1 = document.createElement('h1');
-    h1.textContent = `Welcome ${firstname} `;
-
-    const logout = document.createElement('a');
-    logout.href = '#';
-    logout.textContent = '(logout)';
-    logout.style.fontWeight = 'normal';
-    logout.style.fontStyle = 'italic';
-    logout.style.marginLeft = '10px';
-    logout.addEventListener('click', e => {
-      e.preventDefault();
-      deleteCookiesAndShowForm();
-    });
-
-    h1.appendChild(logout);
-    app.appendChild(h1);
+    document.body.innerHTML = `
+      <h1>
+        Welcome ${firstname}
+        <a href="#" onclick="deleteCookiesAndShowForm()" style="font-weight: normal; font-style: italic; font-size: 10px;">(logout)</a>
+      </h1>
+    `;
   }
 }
 
-// Handler for login button in 3-index.html
-function onLogin() {
-  const fn = document.getElementById('firstname').value.trim();
-  const em = document.getElementById('email').value.trim();
-  if (!fn || !em) {
-    alert('Please fill both fields');
-    return;
-  }
-  // set cookies 10 days, path /3-index.html
-  setCookies(10, '/3-index.html');
-  showWelcomeMessageOrForm();
+// Load welcome message or form on page load (Task 4 only)
+if (window.location.pathname.endsWith('4-index.html')) {
+  window.onload = showWelcomeMessageOrForm;
 }
 
-// Expose 3-index.html entrypoint
-window.showWelcomeMessageOrForm = showWelcomeMessageOrForm;
-window.deleteCookiesAndShowForm   = deleteCookiesAndShowForm;
-window.showForm                   = showForm;
-window.hideForm                   = hideForm;
+// Make Task 1-3 functions available globally for earlier tasks
+window.setCookies = setCookies;
+window.showCookies = showCookies;
+window.getCookie = getCookie;
 
-// Auto‑run for 3-index.html if #app exists
-window.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('app')) {
-    showWelcomeMessageOrForm();
-  }
-});
+// Make Task 4 functions globally
+window.setCookiesAndShowWelcomeMessage = setCookiesAndShowWelcomeMessage;
+window.deleteCookiesAndShowForm = deleteCookiesAndShowForm;
