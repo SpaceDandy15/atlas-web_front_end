@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Login Form with Cookies</title>
+  <meta charset="UTF-8">
+  <title>Cookie Login</title>
 </head>
 <body>
-  <!-- Container for everything; will be replaced by JS -->
-  <div id="app">
-    <h1>Login to the website</h1>
-    <div id="login-form-container">
-      <h2>Login</h2>
-      <input type="text" id="firstname" placeholder="First Name" />
-      <input type="text" id="email" placeholder="Email" />
-      <button id="login-btn">Log me in</button>
-    </div>
+  <h1>Log into Website</h1>
+  <div id="login-form-container" style="display: none;">
+    <h2>Login Form</h2>
+    <input type="text" id="firstname" placeholder="First Name">
+    <input type="text" id="email" placeholder="Email">
+    <button onclick="setCookies()">Log me in</button>
   </div>
 
-  <script src="bundle.js"></script>
+  <script src="3-script.js"></script>
 </body>
 </html>

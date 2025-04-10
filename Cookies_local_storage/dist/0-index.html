@@ -13,6 +13,47 @@
   <h1>Cookies</h1>
   <button onclick="showCookies()">Show the cookies</button>
 
-  <script src="bundle.js"></script>
+  <script>
+
+    // Task 3: Get the value of a specific cookie (only for 0-3-index.html)
+function getCookie(name) {
+  console.log(document.cookie);
+  const cookies = document.cookie.split(';');
+  for (let cookie of cookies) {
+    const [key, value] = cookie.trim().split('=');
+    if (key === name) {
+      return value;
+    }
+  }
+  return '';
+}
+
+// Task 3: Show cookies on the page
+function showCookies() {
+  console.log(document.cookie);
+  const firstname = getCookie('firstname');
+  const email = getCookie('email');
+
+  const p = document.createElement('p');
+  p.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
+  document.body.appendChild(p);
+}
+// Task 1 & Task 2: Set cookies with expiration and path for 0-3-index.html
+function setCookies() {
+  console.log("set");
+  const firstname = document.getElementById('firstname').value;
+  const email = document.getElementById('email').value;
+
+  // Set expiration to 10 days
+  const now = new Date();
+  now.setTime(now.getTime() + (10 * 24 * 60 * 60 * 1000)); // 10 days
+  const expires = `expires=${now.toUTCString()}`;
+  const path = "path=/"; // Used specifically for 2-index.html
+
+  document.cookie = `firstname=${firstname}; ${expires}; ${path}`;
+  document.cookie = `email=${email}; ${expires}; ${path}`;
+}
+    
+  </script>
 </body>
 </html>

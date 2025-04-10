@@ -7,7 +7,7 @@ function setCookies() {
   const now = new Date();
   now.setTime(now.getTime() + (10 * 24 * 60 * 60 * 1000)); // 10 days
   const expires = `expires=${now.toUTCString()}`;
-  const path = "path=/2-index.html"; // Used specifically for 2-index.html
+  const path = "path=/"; // Used specifically for 2-index.html
 
   document.cookie = `firstname=${firstname}; ${expires}; ${path}`;
   document.cookie = `email=${email}; ${expires}; ${path}`;
@@ -82,10 +82,9 @@ function showWelcomeMessageOrForm() {
   }
 }
 
-// Load welcome message or form on page load (Task 4 only)
-if (window.location.pathname.endsWith('4-index.html')) {
-  window.onload = showWelcomeMessageOrForm;
-}
+// Load welcome message or form on page load
+window.addEventListener('DOMContentLoaded', showWelcomeMessageOrForm);
+
 
 // Make Task 1-3 functions available globally for earlier tasks
 window.setCookies = setCookies;
